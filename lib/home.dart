@@ -4,6 +4,7 @@ import 'dart:async';
 import 'package:english_words/english_words.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -31,7 +32,7 @@ class _HomePageState extends State<HomePage> {
       duration: Duration(seconds: 2),
     ));
     Timer(Duration(seconds: 3), () {
-      Navigator.of(context).pushReplacementNamed('\intropage');
+      Navigator.of(context).pushReplacementNamed('\home');
     });
     return _firebaseAuth.signOut();
   }
@@ -45,7 +46,8 @@ class _HomePageState extends State<HomePage> {
           style: TextStyle(fontSize: 20),
         ),
         actions: [
-          IconButton(icon: Icon(Icons.remove_circle), onPressed: signOut),
+          IconButton(
+              icon: FaIcon(FontAwesomeIcons.signOutAlt), onPressed: signOut),
           IconButton(
             icon: Icon(Icons.list),
             onPressed: _pushSaved,
